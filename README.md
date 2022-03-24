@@ -9,8 +9,7 @@ You need one or two arguments:
 - \$2(the second), optional: the PATH of the templates folder\nex: folderC sara ~/Downloads/Ctemplates"
 
 
-if you copy the 'folderC' file to your /bin directory and give it execution permission '+x folderC' you may execute it just by calling the command 'folderc'
+if you copy the 'folderC' file to your /bin directory and give it execution permission 'chmod +x folderC' you may execute it just by calling the command 'folderc $1 $2'
 
-alternatively you can just call it using .[its path]/folderC $1 $2
 
 not complex but does the job :)
