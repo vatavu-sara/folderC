@@ -2,12 +2,12 @@
 
 if [ "$1" = "-h" ]; then
         echo -e "You need one or two arguments:\n\$1(the first): the name of the new folder with the C project structure\n\$2(the second), optional: the PATH of the templates folder\nex: folderC sara ~/Downloads/Ctemplates"
-	exit 0
+	exit 1
 fi
 
 if [ $# -gt 2 ] ; then
 	echo "Bad input! Use 'folderC -h' for help."
-	exit 0
+	exit 1
 fi
 
 mkdir $1 #creates the folder with the name of the 1st argument and the 3 subdirectories
