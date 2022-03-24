@@ -1,0 +1,31 @@
+#!/bin/bash
+
+if [ "$1" = "-h" ]; then
+        echo -e "You need one or two arguments:\n\$1(the first): the name of the new folder with the C project structure\n\$2(the second), optional: the PATH of the templates folder\nex: folderC sara ~/Downloads/Ctemplates"
+	exit 0
+fi
+
+if [ $# -gt 2 ] ; then
+	echo "Bad input! Use 'folderC -h' for help."
+	exit 0
+fi
+
+mkdir $1 #creates the folder with the name of the 1st argument and the 3 subdirectories
+cd $1
+mkdir headers objects src
+
+if [ $# -eq 2 ] ; then
+
+#if we have 2 arguments but the 2nd is not a path we do nothing else
+	if ! [[ -d $2 ]] ; then
+        echo "Only created the folder structure!Use 'folderC -h' for help."
+        exit 0
+	fi
+#if the path is correct we copy all the .h and .c files, as well as the makefile (hope they are there)
+
+cp $2/makefile .
+cp $2/*.h headers
+cp $2/*.c src/
+mv src/main.c .
+
+fi
